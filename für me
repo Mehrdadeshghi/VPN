@@ -1,0 +1,8 @@
+Iranian Internal Domains
+https://github.com/amirmojiry/IranianInternalDomains?tab=readme-ov-file
+
+all Trafic from VPN tunnel to eth0
+#sudo iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o eth0 -j MASQUERADE
+
+delete all 
+#sudo iptables -t nat -F
