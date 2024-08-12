@@ -6,3 +6,6 @@ all Trafic from VPN tunnel to eth0
 
 delete all 
 #sudo iptables -t nat -F
+
+Install OPENVPN
+#wget https://git.io/vpn -O openvpn-install.sh && bash openvpn-install.sh
