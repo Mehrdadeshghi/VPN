@@ -1,0 +1,12 @@
+Add User
+---------------
+curl -X POST "http://171.22.27.175:10086/api/addPeers/wg0"      -H "Content-Type: application/json"      -H "wg-dashboard-apikey: maCoRygEI5eOeTB1wsrojOUv0IPOc13qrcjModOSn_I"      -d '{
+        "bulkAdd": true,
+        "bulkAddAmount": 2,
+        "preshared_key_bulkAdd": true,
+        "DNS": "1.1.1.1",
+        "endpoint_allowed_ip": "0.0.0.0/0",
+        "keepalive": 21,
+        "mtu": 1420
+     }'
+{"data":null,"message":null,"status":true}
