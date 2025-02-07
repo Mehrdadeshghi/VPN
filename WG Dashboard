@@ -26,3 +26,7 @@ echo "net.ipv4.ip_forward=1" | sudo tee -a /etc/sysctl.conf
 sudo sysctl -p
 
 
+// Firewall Freischaltung
+sudo ufw allow 1717/udp
+sudo ufw allow out on eth0
+sudo ufw reload
