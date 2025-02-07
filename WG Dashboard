@@ -10,3 +10,19 @@ curl -X POST "http://171.22.27.175:10086/api/addPeers/wg0"      -H "Content-Type
         "mtu": 1420
      }'
 {"data":null,"message":null,"status":true}
+
+
+
+// Füge dann eine korrekte Regel hinzu
+sudo iptables -t nat -A POSTROUTING -s 10.0.0.0/24 -o eth0 -j MASQUERADE
+
+
+// Erlaube das Forwarding zwischen wg0 und eth0
+sudo iptables -A FORWARD -i wg0 -o eth0 -j ACCEPT
+sudo iptables -A FORWARD -i eth0 -o wg0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+
+// Dauerhaft aktivieren
+echo "net.ipv4.ip_forward=1" | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p
+
+
